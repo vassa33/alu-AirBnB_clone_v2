@@ -8,7 +8,7 @@ from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 
 
-class TestBaseModel(unittest.TestCase):
+class test_basemodel(unittest.TestCase):
     """Unittests for testing the BaseModel class."""
 
     @classmethod
