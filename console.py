@@ -51,17 +51,26 @@ class HBNBCommand(cmd.Cmd):
 
             kwargs = {}
             for i in range(1, len(my_list)):
-                key, value = tuple(my_list[i].split("="))
-                if value[0] == '"':
-                    value = value.strip('"').replace("_", " ")
+                key_value = my_list[i].split("=")
+                if len(key_value) != 2:
+                    continue
+                key, value = key_value
+
+                if value.startswith('"') and value.endswith('"'):
+                    value = value[1:-1].replace('_', ' ').replace('\\"', '"')
+                elif '.' in value:
+                    try:
+                        value = float(value)
+                    except ValueError:
+                        continue
                 else:
                     try:
-                        value = eval(value)
-                    except (SyntaxError, NameError):
+                        value = int(value)
+                    except ValueError:
                         continue
                 kwargs[key] = value
 
-            if kwargs == {}:
+            if not kwargs:
                 obj = eval(my_list[0])()
             else:
                 obj = eval(my_list[0])(**kwargs)
