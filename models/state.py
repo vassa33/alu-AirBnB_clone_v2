@@ -10,6 +10,10 @@ class State(BaseModel):
     name = Column(string(128), nullable=False)
     cities = relationship('City', backref=backref('state', lazy='dynamic'), cascade='all, delete-orphan')
 
+    class FileStorage:
+        def __init__(self):
+            self.__file_path = 'file.json'
+            self.__objects = {}
 
         @property
         def cities(self):
