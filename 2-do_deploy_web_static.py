@@ -9,13 +9,13 @@ env.hosts = ["3.90.0.75", "54.175.29.140"]
 
 
 def do_deploy(archive_path):
-    """Distributes an archive to a web server.
-
-    Args:
-        archive_path (str): The path of the archive to distribute.
-    Returns:
-        If the file doesn't exist at archive_path or an error occurs - False.
-        Otherwise - True.
+    """
+	Distribute an archive to a web server
+    	Argument:
+		archive_path(str): path of the archive to distribute
+	Return:
+		If file doesn't exist at archive_path or an error occurs - False
+		Otherwise - True
     """
     if os.path.isfile(archive_path) is False:
         return False
