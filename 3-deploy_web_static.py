@@ -6,8 +6,10 @@ from datetime import datetime
 from fabric.api import env, put, run
 import os
 
+
 env.user = 'ubuntu'
 env.hosts = ['3.90.0.75', '54.175.29.140']
+
 
 def do_pack():
     """Create a tar gzipped archive of the directory web_static."""
@@ -20,6 +22,7 @@ def do_pack():
         return archive_path
     except:
         return None
+
 
 def do_deploy(archive_path):
     """Distribute archive to web servers"""
@@ -41,6 +44,7 @@ def do_deploy(archive_path):
         return True
     except:
         return False
+
 
 def deploy():
     """Create and distribute archive to web servers"""
