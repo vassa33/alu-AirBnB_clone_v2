@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+"""Compress before sending"""
 from datetime import datetime
 from fabric.api import local
 
@@ -16,4 +18,3 @@ def do_pack():
         return f"versions/{filename}"
     else:
         return None
-
