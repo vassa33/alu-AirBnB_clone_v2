@@ -64,6 +64,13 @@ def do_deploy(archive_path):
         run("sudo ln -s /data/web_static/releases/{}/ "
             "/data/web_static/current".format(no_ext))
 
+        # Add a new file to the deployment
+        run("sudo touch /data/web_static/releases/{}/index.html"
+            .format(no_ext))
+        run("sudo echo '<html><head></head><body>Holberton School</body></html>' "
+            "| sudo tee /data/web_static/releases/{}/index.html"
+            .format(no_ext))
+
         print("New version deployed!")
         return True
 
