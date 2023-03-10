@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+"""Prepare web servers"""
 # Update package list and install Nginx
 apt-get update
 apt-get -y install nginx
