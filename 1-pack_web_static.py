@@ -6,7 +6,6 @@ from fabric.api import local
 
 def do_pack():
     """Create a compressed archive of the web_static directory."""
-    # Create the versions directory if it doesn't exist
     local("mkdir -p versions")
     # Create the filename with the current timestamp
     timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
