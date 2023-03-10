@@ -15,7 +15,7 @@ def do_pack():
     # Compress the web_static directory to the archive file
     result = local("tar -cvzf versions/{} web_static/".format(filename))
 
-    # Return the archive path if the compression was successful, otherwise return None
+    # Return the archive path if the compression was successful
     if result.succeeded:
         return "versions/{}".format(filename)
     else:
